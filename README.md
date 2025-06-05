@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Whiteboard Editor
+
+A collaborative whiteboard editor built with Next.js, Tldraw, and tRPC. This application allows users to create and modify drawings in real-time with type-safe API calls.
+
+## Features
+
+- 🎨 Interactive whiteboard using Tldraw
+- 🔄 Real-time updates
+- 🛠️ Type-safe API with tRPC
+- 🎨 Modern UI with Shadcn components
+- 🚀 Server-side rendering with Next.js
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/) - React framework
+- [Tldraw](https://tldraw.com/) - Whiteboard library
+- [tRPC](https://trpc.io/) - End-to-end typesafe APIs
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [Shadcn](https://ui.shadcn.com/) - UI components
+- [TypeScript](https://www.typescriptlang.org/) - Type checking
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js 18.0.0 or later
+- npm or yarn
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository
+   ```bash
+   git clone https://github.com/your-username/whiteboard-editor.git
+   cd whiteboard-editor
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Install dependencies
+   ```bash
+   npm install
+   # or
+   yarn
+   # or
+   pnpm install
+   ```
 
-## Learn More
+3. Run the development server
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `/src/app` - Next.js app router pages and layouts
+- `/src/components` - Reusable React components
+- `/src/server` - tRPC router and API endpoints
+- `/src/styles` - Global styles and Tailwind configuration
+- `/public` - Static assets
 
-## Deploy on Vercel
+## Available Scripts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `npm run dev` - Start development server with Turbopack for faster development
+- `npm run build` - Build the application for production
+- `npm start` - Start the production server
+- `npm run lint` - Run ESLint with auto-fix for code quality
+- `npm run format` - Format code using Prettier
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> **Note**: The `postinstall` script automatically runs `prisma generate` after package installation to generate the Prisma Client.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
