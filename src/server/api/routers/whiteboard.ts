@@ -1,5 +1,5 @@
-import { z } from 'zod';
-import { createTRPCRouter, publicProcedure } from '../trpc';
+import { z } from "zod";
+import { createTRPCRouter, publicProcedure } from "../trpc";
 
 // Define the shape of the whiteboard content
 type WhiteboardContent = {
@@ -29,10 +29,9 @@ export const whiteboardRouter = createTRPCRouter({
       }
 
       // Parse the content if it's a string, otherwise use as is
-      const content =
-        typeof whiteboard.content === 'string'
-          ? JSON.parse(whiteboard.content)
-          : whiteboard.content;
+      const content = typeof whiteboard.content === 'string'
+        ? JSON.parse(whiteboard.content)
+        : whiteboard.content;
 
       return {
         id: whiteboard.id,
@@ -43,7 +42,6 @@ export const whiteboardRouter = createTRPCRouter({
     }),
 
   // Create a new whiteboard
-  // maybe could add rate limiting to prevent abuse? not specified in the docs.
   create: publicProcedure
     .input(
       z.object({
@@ -52,11 +50,10 @@ export const whiteboardRouter = createTRPCRouter({
       })
     )
     .mutation(async ({ ctx, input }): Promise<WhiteboardData> => {
-      const content =
-        typeof input.content === 'string'
-          ? input.content
-          : JSON.stringify(input.content);
-
+      const content = typeof input.content === 'string' 
+        ? input.content 
+        : JSON.stringify(input.content);
+        
       const whiteboard = await ctx.prisma.whiteboard.create({
         data: {
           id: input.id,
@@ -71,8 +68,6 @@ export const whiteboardRouter = createTRPCRouter({
     }),
 
   // Update an existing whiteboard
-  // Using upsert here to handle both create and update in one operation
-  // This is more efficient than separate create/update methods and handles race conditions better
   update: publicProcedure
     .input(
       z.object({
@@ -81,14 +76,13 @@ export const whiteboardRouter = createTRPCRouter({
       })
     )
     .mutation(async ({ ctx, input }): Promise<WhiteboardData> => {
-      const content =
-        typeof input.content === 'string'
-          ? input.content
-          : JSON.stringify(input.content);
-
+      const content = typeof input.content === 'string'
+        ? input.content
+        : JSON.stringify(input.content);
+        
       const whiteboard = await ctx.prisma.whiteboard.upsert({
         where: { id: input.id },
-        update: {
+        update: { 
           content,
           updatedAt: new Date(),
         },
