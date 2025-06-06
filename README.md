@@ -43,7 +43,21 @@ A collaborative whiteboard editor built with Next.js, Tldraw, and tRPC. This app
    pnpm install
    ```
 
-3. Run the development server
+3. Set up the database
+   ```bash
+   # Create a .env file and add your database URL
+   cp .env.example .env
+   # Edit .env and add your database connection string
+   
+   # Run database migrations
+   npx prisma migrate dev --name init
+   # This will create the database tables and generate the Prisma Client
+   
+   # For production deployments, use:
+   # npx prisma migrate deploy
+   ```
+
+4. Run the development server
    ```bash
    npm run dev
    # or

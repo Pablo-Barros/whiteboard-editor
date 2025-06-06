@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "prisma generate --no-engine && next build",
     "start": "next start",
     "lint": "eslint . --fix --max-warnings=0",
     "format": "prettier --write .",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate --no-engine"
   },
   "dependencies": {
     "@prisma/client": "^6.9.0",
